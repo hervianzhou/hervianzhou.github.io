@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue social sharing example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script src="../dist/vue-add-to-calendar.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <add-to-calendar title="VueConf" location="WROCŁAW, POLAND" :start="new Date()"
+                       :end="new Date((new Date).setDate((new Date).getDate() + 1))"
+                       details="The first Official Vue.js Conference in the world!" v-cloak inline-template>
+        <div>
+          <ul>
+            <li>
+              <google-calendar id="google-calendar">
+                <i class="fa fa-google"></i> Add to Google calendar
+              </google-calendar>
+            </li>
+            <li>
+              <microsoft-calendar id="microsoft-calendar">
+                <i class="fa fa-windows"></i> Add to Microsoft live calendar
+              </microsoft-calendar>
+            </li>
+            <li>
+              <apple-calendar id="apple-calendar">
+                <i class="fa fa-apple"></i> Add to iOS calendar
+              </apple-calendar>
+            </li>
+          </ul>
+        </div>
+      </add-to-calendar>
+    </div>
+    <script>
+      Vue.use(AddToCalendar);
+
+      new Vue({
+        el: '#app',
+        data: {}
+      });
+    </script>
+  </body>
+</html>
